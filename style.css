@@ -38,7 +38,7 @@ body {
     color: var(--branco);
     display: flex;
     justify-content: center;
-    padding: lem;
+    padding: 1em;
     font-size: 18px;
     align-items: center;
     width: 100%;
@@ -47,6 +47,7 @@ body {
     border-right: 2px solid var(--botao-ativo);
     border-top: none;
 }
+
 .botao:first-child{
 border-radius: 40px 40px 0 0;
 }
