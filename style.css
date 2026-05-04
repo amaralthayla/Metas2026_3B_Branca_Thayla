@@ -58,4 +58,20 @@ border-radius: 40px 40px 0 0;
     background-color: var(--botao-ativo);
     border-bottom: 4px solid var(--grifar);
 }
+.abas.textos{
+    background-color: var(--tecto-findo);
+    padding: 40px;
+    border-radius: 0 0 40px 40px;
 
+}
+.aba-conteudo.ativo{
+    display:block;
+}
+
+.aba-conteudo{
+    display:none;
+}
+.aba-conteudo-titulo-principal{
+    font-size: 28px;
+    text-align: center;
+}
