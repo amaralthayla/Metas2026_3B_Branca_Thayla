@@ -9,11 +9,13 @@
     --boatao-inativo:#2529FA;
     --tecto-findo:#000000;
 }
+
 body {
     background-color: var(--cor-de-fundo);
     color: var(--branco);
     font-family:'Times New Roman', Times, serif;
 }
+
 .conteudo-principal{
     display: flex; 
     flex-direction: column;
