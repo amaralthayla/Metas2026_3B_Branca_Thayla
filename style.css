@@ -81,6 +81,11 @@ border-radius: 40px 40px 0 0;
     color: var(--grifar);
     text-transform: uppercase;
 }
+.contador{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 .contador-digito{
     padding: 0 16px;
