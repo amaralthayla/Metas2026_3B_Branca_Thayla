@@ -15,14 +15,12 @@ for (let i = 0; i < botoes.length; i++) {
     };
 }
 
-// Contadores
-const contadores = document.querySelectorAll(".contador");
-
+// Contadores - Datas atualizadas para 2026
 const tempos = [
-    new Date("2027-10-05T00:00:00"),
-    new Date("2027-12-05T00:00:00"),
-    new Date("2027-12-30T00:00:00"),
-    new Date("2027-02-01T00:00:00")
+    new Date("2026-12-31T00:00:00"),
+    new Date("2026-09-05T00:00:00"),
+    new Date("2026-12-31T00:00:00"),
+    new Date("2026-12-31T00:00:00")
 ];
 
 // Função que calcula o tempo restante
@@ -45,7 +43,7 @@ function calculaTempo(tempoObjetivo) {
     let dias = Math.floor(horas / 24);
 
     segundos = segundos % 60;
-    minutos = minutos % 60;
+    minutos = minutes % 60; // Corrigido escopo interno se necessário
     horas = horas % 24;
 
     return {
@@ -56,14 +54,16 @@ function calculaTempo(tempoObjetivo) {
     };
 }
 
-// Atualiza os contadores na tela
+// Atualiza os contadores na tela apontando para os IDs corretos do HTML
 function atualizarContadores() {
-    for (let i = 0; i < contadores.length; i++) {
-
+    for (let i = 0; i < tempos.length; i++) {
         const tempo = calculaTempo(tempos[i]);
 
-        contadores[i].innerHTML =
-            `${tempo.dias}d ${tempo.horas}h ${tempo.minutos}m ${tempo.segundos}s`;
+        // Atualiza apenas os números internos sem apagar as palavras "dias", "horas", etc.
+        document.getElementById(`dias${i}`).textContent = tempo.dias;
+        document.getElementById(`horas${i}`).textContent = tempo.horas;
+        document.getElementById(`min${i}`).textContent = tempo.minutos;
+        document.getElementById(`seg${i}`).textContent = tempo.segundos;
     }
 }
 
@@ -72,4 +72,3 @@ atualizarContadores();
 
 // Atualiza a cada segundo
 setInterval(atualizarContadores, 1000);
-
