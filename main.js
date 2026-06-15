@@ -15,7 +15,9 @@ for (let i = 0; i < botoes.length; i++) {
     };
 }
 
-// Contadores - Datas atualizadas para 2026
+// Contadores
+const contadores = document.querySelectorAll(".contador");
+
 const tempos = [
     new Date("2026-12-31T00:00:00"),
     new Date("2026-09-05T00:00:00"),
@@ -43,7 +45,7 @@ function calculaTempo(tempoObjetivo) {
     let dias = Math.floor(horas / 24);
 
     segundos = segundos % 60;
-    minutos = minutes % 60; // Corrigido escopo interno se necessário
+    minutos = minutos % 60;
     horas = horas % 24;
 
     return {
@@ -54,16 +56,14 @@ function calculaTempo(tempoObjetivo) {
     };
 }
 
-// Atualiza os contadores na tela apontando para os IDs corretos do HTML
+// Atualiza os contadores na tela
 function atualizarContadores() {
-    for (let i = 0; i < tempos.length; i++) {
+    for (let i = 0; i < contadores.length; i++) {
+
         const tempo = calculaTempo(tempos[i]);
 
-        // Atualiza apenas os números internos sem apagar as palavras "dias", "horas", etc.
-        document.getElementById(`dias${i}`).textContent = tempo.dias;
-        document.getElementById(`horas${i}`).textContent = tempo.horas;
-        document.getElementById(`min${i}`).textContent = tempo.minutos;
-        document.getElementById(`seg${i}`).textContent = tempo.segundos;
+        contadores[i].innerHTML =
+            `${tempo.dias}d ${tempo.horas}h ${tempo.minutos}m ${tempo.segundos}s`;
     }
 }
 
